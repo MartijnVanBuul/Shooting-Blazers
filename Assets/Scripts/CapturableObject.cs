@@ -9,6 +9,26 @@ public class CapturableObject : MonoBehaviour {
     public float correctScore;
     public float neutralScore;
     public float failScore;
+
+    void Start()
+    {
+        if(GoalCaptureType == CaptureType.red)
+            GetComponent<MeshRenderer>().material.color = Color.red;
+        else if(GoalCaptureType == CaptureType.blue)
+            GetComponent<MeshRenderer>().material.color = Color.blue;
+        else if (GoalCaptureType == CaptureType.yellow)
+            GetComponent<MeshRenderer>().material.color = Color.yellow;
+        else if (GoalCaptureType == CaptureType.purple)
+            GetComponent<MeshRenderer>().material.color = Color.magenta;
+        else if (GoalCaptureType == CaptureType.green)
+            GetComponent<MeshRenderer>().material.color = Color.green;
+        else if (GoalCaptureType == CaptureType.orange)
+            GetComponent<MeshRenderer>().material.color = new Color(1, 1, 0);
+        else 
+            GetComponent<MeshRenderer>().material.color = Color.white;
+
+    }
+
     /// <summary>
     /// Setting the CaptureType of the object.
     /// </summary>

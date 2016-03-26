@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public enum CaptureType
 {
@@ -16,11 +17,11 @@ public enum CaptureType
 
 public class CapturableObjectManager : MonoBehaviour {
 
+    public GameObject CircleImage;
+    public GameObject DisplayCanvas;
+
     private Ray ray;
     private RaycastHit hit;
-
-    public Material RegularMaterial;
-    public Material CaptureMaterial;
 
     private Vector3 circlePosition;
     private bool isCircleStarted;
@@ -68,6 +69,8 @@ public class CapturableObjectManager : MonoBehaviour {
         {
             return hit.point;
         }
+
+        GameObject circleImage = 
         return Vector3.zero;
     }
 
@@ -96,9 +99,6 @@ public class CapturableObjectManager : MonoBehaviour {
         if (circlePosition != Vector3.zero)
         {
             Collider[] captureColliders = Physics.OverlapSphere(circlePosition, circleRadius);
-            foreach (Collider captureCollider in captureColliders)
-                if(captureCollider.tag == "CaptureObject")
-                    captureCollider.GetComponent<MeshRenderer>().material = CaptureMaterial;
         }
 
         circleRadius += circleIncrease;
