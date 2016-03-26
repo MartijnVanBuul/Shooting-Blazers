@@ -24,13 +24,16 @@ public class CapturableObjectManager : MonoBehaviour
     private Ray ray;
     private RaycastHit hit;
 
-    private Vector3 circlePosition;
-    private bool isCircleStarted;
-    private float startRadius = 0.1f;
-    private float circleRadius;
-    private float circleIncrease = 0.05f;
-    private float alpha = 0.5f;
+    public Vector3 circlePosition;
+    public bool isCircleStarted;
+	public float circleRadiusMin = 0.1f;
+	public float circleRadiusMax = 0.9f;
+	public float circleTimeDuration = 2.0f;
+    public float alpha = 0.5f;
 
+	private float circleTimeNow = 0.0f;
+	private float circleRadius = 0.0f;
+	
     private int circleCount;
     private List<CaptureType> circleCaptureTypes = new List<CaptureType>();
 
@@ -41,10 +44,12 @@ public class CapturableObjectManager : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && circleCount < circleCaptureTypes.Count)
-        {
+		{
+			circleTimeNow = (circleTimeNow + Time.deltaTime) % circleTimeDuration;
+			circleRadius = (circleRadiusMin + circleRadiusMax) * 0.5f * (1 + Mathf.Sin(2 * Mathf.PI * circleTimeNow));
+
             isCircleStarted = true;
             circlePosition = StartCircle();
-            circleRadius = startRadius;
 
             currentCircle = (GameObject)Instantiate(CircleImage, circlePosition, Quaternion.identity);
             currentCircle.transform.SetParent(DisplayCanvas.transform, true);
@@ -119,7 +124,6 @@ public class CapturableObjectManager : MonoBehaviour
     /// </summary>
     private void DrawCircle()
     {
-        circleRadius += circleIncrease;
         currentCircle.GetComponent<RectTransform>().localScale = new Vector3(circleRadius / 2, circleRadius / 2, 0);
     }
 
