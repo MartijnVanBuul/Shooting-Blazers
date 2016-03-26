@@ -2,6 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 
+public enum CaptureType
+{
+    red,
+    blue,
+    yellow,
+    orange,
+    purple,
+    green,
+    white
+}
+
 public class CapturableObjectManager : MonoBehaviour {
 
     private Ray ray;
@@ -12,7 +23,8 @@ public class CapturableObjectManager : MonoBehaviour {
 
     private Vector3 circlePosition;
     private bool isCircleStarted;
-    private float circleRadius = 1;
+    private float startRadius = 0.1f;
+    private float circleRadius;
     private float circleIncrease = 0.05f;
     private List<GameObject> capturableObjects = new List<GameObject>();
 
@@ -22,13 +34,15 @@ public class CapturableObjectManager : MonoBehaviour {
         {
             isCircleStarted = true;
             circlePosition = StartCircle();
-            circleRadius = 1;
+            circleRadius = startRadius;
             capturableObjects.Clear();
         }
         else if (Input.GetMouseButtonUp(0))
         {
             isCircleStarted = false;
             capturableObjects = StopCircle();
+            foreach (GameObject capture in capturableObjects)
+                capture.GetComponent<CapturableObject>().Score();
         }
 
         if (isCircleStarted)
