@@ -12,6 +12,9 @@ public class CapturableObject : MonoBehaviour {
 
     void Start()
     {
+<<<<<<< HEAD
+
+=======
         if(GoalCaptureType == CaptureType.red)
             GetComponentInChildren<MeshRenderer>().material.color = Color.red;
         else if(GoalCaptureType == CaptureType.blue)
@@ -26,6 +29,7 @@ public class CapturableObject : MonoBehaviour {
             GetComponentInChildren<MeshRenderer>().material.color = new Color(1, 1, 0);
         else
             GetComponentInChildren<MeshRenderer>().material.color = Color.white;
+>>>>>>> refs/remotes/origin/master
 
     }
 
@@ -72,5 +76,25 @@ public class CapturableObject : MonoBehaviour {
             GameManager.instance.AddScore(neutralScore);
         else
             GameManager.instance.AddScore(failScore);
+    }
+
+    public void SetCaptureGoal(CaptureType type)
+    {
+        GoalCaptureType = type;
+
+        if (GoalCaptureType == CaptureType.red)
+            GetComponent<MeshRenderer>().material.color = Color.red;
+        else if (GoalCaptureType == CaptureType.blue)
+            GetComponent<MeshRenderer>().material.color = Color.blue;
+        else if (GoalCaptureType == CaptureType.yellow)
+            GetComponent<MeshRenderer>().material.color = Color.yellow;
+        else if (GoalCaptureType == CaptureType.purple)
+            GetComponent<MeshRenderer>().material.color = Color.magenta;
+        else if (GoalCaptureType == CaptureType.green)
+            GetComponent<MeshRenderer>().material.color = Color.green;
+        else if (GoalCaptureType == CaptureType.orange)
+            GetComponent<MeshRenderer>().material.color = new Color(1, 0.5f, 0);
+        else
+            GetComponent<MeshRenderer>().material.color = Color.white;
     }
 }

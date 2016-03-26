@@ -15,7 +15,8 @@ public enum CaptureType
     white
 }
 
-public class CapturableObjectManager : MonoBehaviour {
+public class CapturableObjectManager : MonoBehaviour
+{
 
     public GameObject CircleImage;
     public GameObject DisplayCanvas;
@@ -28,33 +29,51 @@ public class CapturableObjectManager : MonoBehaviour {
     private float startRadius = 0.1f;
     private float circleRadius;
     private float circleIncrease = 0.05f;
-    private List<GameObject> capturableObjects = new List<GameObject>();
+    private float alpha = 0.5f;
 
-    private CaptureType circleCaptureType = CaptureType.red;
+    private int circleCount;
+    private List<CaptureType> circleCaptureTypes = new List<CaptureType>();
+
+    private GameObject currentCircle;
+    private Material currentCircleMaterial;
 
     // Use this for initialization
-    void Update () {
-        if (Input.GetMouseButtonDown(0))
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && circleCount < circleCaptureTypes.Count)
         {
             isCircleStarted = true;
             circlePosition = StartCircle();
             circleRadius = startRadius;
-            capturableObjects.Clear();
+
+            currentCircle = (GameObject)Instantiate(CircleImage, circlePosition, Quaternion.identity);
+            currentCircle.transform.SetParent(DisplayCanvas.transform, true);
+            currentCircleMaterial = new Material(currentCircle.GetComponent<Image>().material);
+
+
+            if (circleCaptureTypes[circleCount] == CaptureType.red)
+                currentCircleMaterial.color = new Color(1, 0, 0, alpha);
+            else if (circleCaptureTypes[circleCount] == CaptureType.blue)
+                currentCircleMaterial.color = new Color(0, 0, 1, alpha);
+            else if (circleCaptureTypes[circleCount] == CaptureType.yellow)
+                currentCircleMaterial.color = new Color(1, 1, 0, alpha);
+            else if (circleCaptureTypes[circleCount] == CaptureType.purple)
+                currentCircleMaterial.color = new Color(1, 0, 1, alpha);
+            else if (circleCaptureTypes[circleCount] == CaptureType.green)
+                currentCircleMaterial.color = new Color(0, 1, 0, alpha);
+            else if (circleCaptureTypes[circleCount] == CaptureType.orange)
+                currentCircleMaterial.color = new Color(1, 0.5f, 0, alpha);
+            else
+                currentCircleMaterial.color = new Color(1, 1, 1, alpha);
+
+            currentCircle.GetComponent<Image>().material = currentCircleMaterial;
+            currentCircle.GetComponent<RectTransform>().position = Input.mousePosition;
         }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            isCircleStarted = false;
-            capturableObjects = StopCircle();
-            foreach (GameObject capture in capturableObjects)
-            {
-                capture.GetComponent<CapturableObject>().SetCaptureType(circleCaptureType);
-                capture.GetComponent<CapturableObject>().Score();
-            }
-        }
+        else if (Input.GetMouseButtonUp(0) && circleCount < circleCaptureTypes.Count)
+            StopCircle();
 
         if (isCircleStarted)
             DrawCircle();
-
     }
 
     /// <summary>
@@ -67,6 +86,7 @@ public class CapturableObjectManager : MonoBehaviour {
 
         if (Physics.Raycast(ray, out hit, 100))
         {
+
             return hit.point;
         }
 
@@ -77,17 +97,21 @@ public class CapturableObjectManager : MonoBehaviour {
     /// Method that returns all the objects that are caught in the circle.
     /// </summary>
     /// <returns>The list of capturable gameobjects.</returns>
-    private List<GameObject> StopCircle()
+    private void StopCircle()
     {
         if (circlePosition != Vector3.zero)
         {
-            Collider[] captureColliders = Physics.OverlapSphere(circlePosition, circleRadius);
+            Collider[] captureColliders = Physics.OverlapSphere(new Vector3(circlePosition.x, 0, circlePosition.z), circleRadius);
             foreach (Collider captureCollider in captureColliders)
                 if (captureCollider.tag == "CaptureObject")
-                    capturableObjects.Add(captureCollider.gameObject);
+                    captureCollider.GetComponent<CapturableObject>().SetCaptureType(circleCaptureTypes[circleCount]);
         }
 
-        return capturableObjects;
+        circleCount++;
+        isCircleStarted = false;
+
+        if (circleCount == circleCaptureTypes.Count)
+            GameManager.instance.NextRound();
     }
 
     /// <summary>
@@ -95,20 +119,16 @@ public class CapturableObjectManager : MonoBehaviour {
     /// </summary>
     private void DrawCircle()
     {
-        if (circlePosition != Vector3.zero)
-        {
-            Collider[] captureColliders = Physics.OverlapSphere(circlePosition, circleRadius);
-        }
-
         circleRadius += circleIncrease;
+        currentCircle.GetComponent<RectTransform>().localScale = new Vector3(circleRadius / 2, circleRadius / 2, 0);
     }
 
 
     /// <summary>
     /// Setting the CaptureType of the circle.
     /// </summary>
-    public void SetCaptureType(CaptureType circleCaptureType)
+    public void SetCaptureTypes(List<CaptureType> circleCaptureType)
     {
-        this.circleCaptureType = circleCaptureType;
+        this.circleCaptureTypes = circleCaptureType;
     }
 }
