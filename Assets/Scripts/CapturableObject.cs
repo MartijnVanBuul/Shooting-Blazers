@@ -23,7 +23,7 @@ public class CapturableObject : MonoBehaviour {
         else if (GoalCaptureType == CaptureType.green)
             GetComponent<MeshRenderer>().material.color = Color.green;
         else if (GoalCaptureType == CaptureType.orange)
-            GetComponent<MeshRenderer>().material.color = new Color(1, 1, 0);
+            GetComponent<MeshRenderer>().material.color = new Color(1, 0.5f, 0);
         else 
             GetComponent<MeshRenderer>().material.color = Color.white;
 

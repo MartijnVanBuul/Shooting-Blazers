@@ -355,7 +355,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1001 &922950927
 Prefab:
   m_ObjectHideFlags: 0
@@ -784,6 +784,8 @@ MonoBehaviour:
   timer: 20
   scoreDisplay: {fileID: 720722349}
   timerDisplay: {fileID: 147900985}
+  DisplayCanvas: {fileID: 1881368160}
+  amountArea: 3
 --- !u!4 &1875715126 stripped
 Transform:
   m_PrefabParentObject: {fileID: 469880, guid: 80d8110f8615ed74baf69de5d670bc4d, type: 2}
@@ -875,7 +877,7 @@ RectTransform:
   - {fileID: 147900984}
   - {fileID: 720722348}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
