@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 public class LevelGenerator : MonoBehaviour 
 {
@@ -12,30 +13,11 @@ public class LevelGenerator : MonoBehaviour
 	public float xMax = 5.0f;
 	public float yMin = 1.0f;
 	public float yMax = 1.0f;
-	public float zMin = -5.0f;
-	public float zMax = 5.0f;
+	public float zMin = -10.0f;
+	public float zMax = 10.0f;
 	
-	bool levelGenerated = false;
-
-	// Use this for initialization
-	void Start () {
-		GenerateLevel();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-	void GenerateLevel()
+	public void GenerateLevel()
 	{
-		if (levelGenerated == true)
-		{
-			Debug.Log("Error: level already generated!");
-			return;
-		}
-		levelGenerated = true;
-
 		float x, y, z;
 		int Count = Random.Range(CountMin, CountMax);
 		int timeoutLeft = Timeout;
@@ -50,7 +32,7 @@ public class LevelGenerator : MonoBehaviour
 					y = Random.Range(yMin, yMax);
 					z = Random.Range(zMin, zMax);
 
-					if (Physics.OverlapSphere(new Vector3(x, y, z), radius).Length == 0)
+					if (Physics.OverlapSphere(new Vector3(x, y, z), radius).Where(c => c.tag != "Floor").Count() == 0)
 						break;
 				}
 				else
@@ -60,6 +42,8 @@ public class LevelGenerator : MonoBehaviour
 				}
 			}
 			GameObject go = (GameObject)Instantiate(GameObj, new Vector3(x, y, z), Quaternion.identity);
+            go.GetComponent<CapturableObject>().SetCaptureGoal((CaptureType)Random.Range(1, 3));
+            GameManager.instance.AddObject(go.GetComponent<CapturableObject>());
 		}
 
 		Debug.Log("Success!");

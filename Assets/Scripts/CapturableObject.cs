@@ -12,25 +12,12 @@ public class CapturableObject : MonoBehaviour {
     public float neutralScore;
     public float failScore;
 
-    void Start()
-    {
-        if(GoalCaptureType == CaptureType.red)
-            GetComponentInChildren<MeshRenderer>().material.color = Color.red;
-        else if(GoalCaptureType == CaptureType.blue)
-            GetComponentInChildren<MeshRenderer>().material.color = Color.blue;
-        else if (GoalCaptureType == CaptureType.yellow)
-            GetComponentInChildren<MeshRenderer>().material.color = Color.yellow;
-        else if (GoalCaptureType == CaptureType.purple)
-            GetComponentInChildren<MeshRenderer>().material.color = Color.magenta;
-        else if (GoalCaptureType == CaptureType.green)
-            GetComponentInChildren<MeshRenderer>().material.color = Color.green;
-        else if (GoalCaptureType == CaptureType.orange)
-            GetComponentInChildren<MeshRenderer>().material.color = new Color(1, 1, 0);
-        else
-            GetComponentInChildren<MeshRenderer>().material.color = Color.white;
 
+<<<<<<< HEAD
         animPlayer = GetComponentInChildren<Animator>();
     }
+=======
+>>>>>>> origin/master
 
     /// <summary>
     /// Setting the CaptureType of the object.
@@ -77,9 +64,30 @@ public class CapturableObject : MonoBehaviour {
             GameManager.instance.AddScore(failScore);
     }
 
+<<<<<<< HEAD
     public void testAnimation()
     {
         Debug.Log("Hallo");
         animPlayer.SetTrigger("showBubble");
+=======
+    public void SetCaptureGoal(CaptureType type)
+    {
+        GoalCaptureType = type;
+
+        if (GoalCaptureType == CaptureType.red)
+            GetComponentInChildren<MeshRenderer>().material.color = Color.red;
+        else if (GoalCaptureType == CaptureType.blue)
+            GetComponentInChildren<MeshRenderer>().material.color = Color.blue;
+        else if (GoalCaptureType == CaptureType.yellow)
+            GetComponentInChildren<MeshRenderer>().material.color = Color.yellow;
+        else if (GoalCaptureType == CaptureType.purple)
+            GetComponentInChildren<MeshRenderer>().material.color = Color.magenta;
+        else if (GoalCaptureType == CaptureType.green)
+            GetComponentInChildren<MeshRenderer>().material.color = Color.green;
+        else if (GoalCaptureType == CaptureType.orange)
+            GetComponentInChildren<MeshRenderer>().material.color = new Color(1, 0.5f, 0);
+        else
+            GetComponentInChildren<MeshRenderer>().material.color = Color.white;
+>>>>>>> origin/master
     }
 }
