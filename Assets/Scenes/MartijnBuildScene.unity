@@ -471,6 +471,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CircleImage: {fileID: 139168, guid: 318ef2db27489c44b87ac8efdb5ea35a, type: 2}
   DisplayCanvas: {fileID: 1881368160}
+  circleRadiusMin: 0.8
+  circleRadiusMax: 3
+  circleTimeDuration: 1.5
+  circleAlpha: 0.5
 --- !u!114 &1813470196
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ public class LevelGenerator : MonoBehaviour
 	public float yMax = 1.0f;
 	public float zMin = -10.0f;
 	public float zMax = 10.0f;
-	
+
 	public void GenerateLevel()
 	{
 		float x, y, z;
@@ -45,8 +45,6 @@ public class LevelGenerator : MonoBehaviour
             go.GetComponent<CapturableObject>().SetCaptureGoal((CaptureType)Random.Range(1, 3));
             GameManager.instance.AddObject(go.GetComponent<CapturableObject>());
 		}
-
-		Debug.Log("Success!");
 	}
 }
 
