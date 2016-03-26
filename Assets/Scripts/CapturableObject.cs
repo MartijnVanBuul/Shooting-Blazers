@@ -13,19 +13,19 @@ public class CapturableObject : MonoBehaviour {
     void Start()
     {
         if(GoalCaptureType == CaptureType.red)
-            GetComponent<MeshRenderer>().material.color = Color.red;
+            GetComponentInChildren<MeshRenderer>().material.color = Color.red;
         else if(GoalCaptureType == CaptureType.blue)
-            GetComponent<MeshRenderer>().material.color = Color.blue;
+            GetComponentInChildren<MeshRenderer>().material.color = Color.blue;
         else if (GoalCaptureType == CaptureType.yellow)
-            GetComponent<MeshRenderer>().material.color = Color.yellow;
+            GetComponentInChildren<MeshRenderer>().material.color = Color.yellow;
         else if (GoalCaptureType == CaptureType.purple)
-            GetComponent<MeshRenderer>().material.color = Color.magenta;
+            GetComponentInChildren<MeshRenderer>().material.color = Color.magenta;
         else if (GoalCaptureType == CaptureType.green)
-            GetComponent<MeshRenderer>().material.color = Color.green;
+            GetComponentInChildren<MeshRenderer>().material.color = Color.green;
         else if (GoalCaptureType == CaptureType.orange)
-            GetComponent<MeshRenderer>().material.color = new Color(1, 1, 0);
-        else 
-            GetComponent<MeshRenderer>().material.color = Color.white;
+            GetComponentInChildren<MeshRenderer>().material.color = new Color(1, 1, 0);
+        else
+            GetComponentInChildren<MeshRenderer>().material.color = Color.white;
 
     }
 
