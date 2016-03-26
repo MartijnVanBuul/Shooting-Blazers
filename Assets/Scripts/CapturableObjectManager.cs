@@ -46,10 +46,10 @@ public class CapturableObjectManager : MonoBehaviour
 
 		if (Input.GetMouseButtonDown(0) && circleCount < circleCaptureTypes.Count)
 		{
-			
+
 			isCircleStarted = true;
 			circlePosition = StartCircle();
-			
+
 			currentCircle = (GameObject)Instantiate(CircleImage, circlePosition, Quaternion.identity);
 			currentCircle.transform.SetParent(DisplayCanvas.transform, true);
 			currentCircleMaterial = new Material(currentCircle.GetComponent<Image>().material);
