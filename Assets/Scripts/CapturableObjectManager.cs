@@ -34,6 +34,9 @@ public class CapturableObjectManager : MonoBehaviour
     private CaptureType circleCaptureType = CaptureType.red;
 
     private GameObject currentCircle;
+    private Material currentCircleMaterial;
+
+    private int count;
 
     // Use this for initialization
     void Update()
@@ -47,7 +50,15 @@ public class CapturableObjectManager : MonoBehaviour
 
             currentCircle = (GameObject)Instantiate(CircleImage, circlePosition, Quaternion.identity);
             currentCircle.transform.SetParent(DisplayCanvas.transform, true);
-            currentCircle.GetComponent<Image>().material.color = new Color(1, 0, 0, 0.5f);
+            currentCircleMaterial = new Material(currentCircle.GetComponent<Image>().material);
+            if (count == 0)
+                currentCircleMaterial.SetColor("_Color", new Color(1, 0, 0, 0.2f));
+            else
+                currentCircleMaterial.SetColor("_Color", new Color(0, 0, 1, 0.2f));
+            count++;
+            currentCircle.GetComponent<Image>().material = currentCircleMaterial;
+
+
             currentCircle.GetComponent<RectTransform>().position = Input.mousePosition;
         }
         else if (Input.GetMouseButtonUp(0))
