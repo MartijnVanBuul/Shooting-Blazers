@@ -14,19 +14,20 @@ public class AmountOfCircles : MonoBehaviour
 
     [Range(0, 100)] public int OffSet = 30;
     public int ImageSizes = 60;
-    public GameObject Explosion;
 
-    private int _currentPosition = 0;
+    private int _currentPosition;
 
-	// Use this for initialization
-	void Start ()
-	{
 
+    void Start()
+    {
+        _beginPosition = transform.position;
     }
-
+    private Vector3 _beginPosition;
     public void SetCircles(List<CaptureType> caputerTypes)
     {
+        transform.position = _beginPosition;
         _captureTypes = caputerTypes;
+        _currentPosition = 0;
         FillDictonary();
         LoadCirclesOnGUI();
     }
@@ -86,8 +87,6 @@ public class AmountOfCircles : MonoBehaviour
             if (i <= _currentPosition)
             {
                 circle.SetActive(false);
-                GameObject explosion = Instantiate(Explosion);
-                explosion.transform.position = new Vector3(circle.transform.position.x, circle.transform.position.y, 1);
             }
             else
             {

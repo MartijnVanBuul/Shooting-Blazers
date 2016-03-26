@@ -12,36 +12,7 @@ public class GUIManager : MonoBehaviour
         {
             Debug.LogWarning("There is no reference to the AmountOfCircles script");
         }
-
-        //TESTING
-        List<CaptureType> captureTypes = new List<CaptureType>();
-        captureTypes.Add(CaptureType.blue);
-        captureTypes.Add(CaptureType.red);
-        captureTypes.Add(CaptureType.yellow);
-        captureTypes.Add(CaptureType.blue);
-        captureTypes.Add(CaptureType.red);
-        captureTypes.Add(CaptureType.yellow);
-        captureTypes.Add(CaptureType.blue);
-        captureTypes.Add(CaptureType.red);
-        captureTypes.Add(CaptureType.yellow);
-        captureTypes.Add(CaptureType.blue);
-        captureTypes.Add(CaptureType.red);
-        captureTypes.Add(CaptureType.blue);
-        captureTypes.Add(CaptureType.red);
-        captureTypes.Add(CaptureType.yellow);
-        captureTypes.Add(CaptureType.yellow);
-
-
-        SetCircles(captureTypes);
-	    StartCoroutine(test());
-	    /////////////
 	}
-
-    IEnumerator test()
-    {
-        yield return new WaitForSeconds(2);
-        PlacedCircle();
-    }
 
     public void PlacedCircle()
     {
@@ -51,6 +22,7 @@ public class GUIManager : MonoBehaviour
     public void SetCircles(List<CaptureType> captureTypes )
     {
         AmountOfCircles.SetCircles(captureTypes);
+        Debug.Log(captureTypes.Count + " have been added to the GUIManager");
     }
 	
 	// Update is called once per frame

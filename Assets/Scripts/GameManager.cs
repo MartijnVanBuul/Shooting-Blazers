@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour {
     public Text scoreDisplay;
     public Text timerDisplay;
     public GameObject DisplayCanvas;
+    public GUIManager GuiManager;
     public int amountArea = 3;
 
 	void Awake () {
@@ -37,6 +38,10 @@ public class GameManager : MonoBehaviour {
         timerDisplay.text = timer.ToString();
 	}
 
+    public void PlacedCircle()
+    {
+        GuiManager.PlacedCircle();
+    }
 
     /// <summary>
     /// Adding the score to the total score.
@@ -58,6 +63,7 @@ public class GameManager : MonoBehaviour {
             captureTypes.Add((CaptureType)Random.Range(1, 3));
 
         GetComponent<CapturableObjectManager>().SetCaptureTypes(captureTypes);
+        GuiManager.SetCircles(captureTypes);
     }
 
     /// <summary>
@@ -88,6 +94,7 @@ public class GameManager : MonoBehaviour {
 
 		//Clearing the all lists
 		capturableObjects.Clear ();
+        captureTypes.Clear();
 
 		//Generating new values for the next round:
 		GenerateCaptureAreas ();

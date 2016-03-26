@@ -73,10 +73,15 @@ public class CapturableObjectManager : MonoBehaviour
 			currentCircle.GetComponent<Image>().material = currentCircleMaterial;
 			currentCircle.GetComponent<RectTransform>().position = Input.mousePosition;
 		}
-		else if (Input.GetMouseButtonUp(0) && circleCount < circleCaptureTypes.Count)
-			StopCircle();
+		else if (!Input.GetMouseButton(0) && isCircleStarted && circleCount < circleCaptureTypes.Count)
+		{
+            StopCircle();
 
-		if (isCircleStarted)
+            if (circleCount >= circleCaptureTypes.Count)
+		        circleCount = 0;
+		}
+
+	    if (isCircleStarted)
 			DrawCircle();
 	}
 
@@ -115,6 +120,8 @@ public class CapturableObjectManager : MonoBehaviour
 
 		circleCount++;
 		isCircleStarted = false;
+
+        GameManager.instance.PlacedCircle();
 
 		if (circleCount == circleCaptureTypes.Count)
 			GameManager.instance.NextRound();
