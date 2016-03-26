@@ -6,6 +6,8 @@ public class CapturableObject : MonoBehaviour {
     public CaptureType GoalCaptureType;
     private CaptureType currentCaptureType = CaptureType.none;
 
+    private Animator animPlayer;
+
     public float correctScore;
     public float neutralScore;
     public float failScore;
@@ -27,6 +29,7 @@ public class CapturableObject : MonoBehaviour {
         else
             GetComponentInChildren<MeshRenderer>().material.color = Color.white;
 
+        animPlayer = GetComponentInChildren<Animator>();
     }
 
     /// <summary>
@@ -72,5 +75,11 @@ public class CapturableObject : MonoBehaviour {
             GameManager.instance.AddScore(neutralScore);
         else
             GameManager.instance.AddScore(failScore);
+    }
+
+    public void testAnimation()
+    {
+        Debug.Log("Hallo");
+        animPlayer.SetTrigger("showBubble");
     }
 }

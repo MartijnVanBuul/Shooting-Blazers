@@ -49,6 +49,7 @@ public class CapturableObjectManager : MonoBehaviour {
             {
                 capture.GetComponent<CapturableObject>().SetCaptureType(circleCaptureType);
                 capture.GetComponent<CapturableObject>().Score();
+                capture.GetComponent<CapturableObject>().testAnimation();
             }
         }
 
@@ -111,4 +112,6 @@ public class CapturableObjectManager : MonoBehaviour {
     {
         this.circleCaptureType = circleCaptureType;
     }
+
+    
 }
