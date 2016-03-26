@@ -70,7 +70,6 @@ public class CapturableObjectManager : MonoBehaviour {
             return hit.point;
         }
 
-        GameObject circleImage = 
         return Vector3.zero;
     }
 
