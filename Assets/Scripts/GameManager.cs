@@ -54,7 +54,6 @@ public class GameManager : MonoBehaviour {
     /// </summary>
     public void GenerateCaptureAreas()
     {
-
         for (int i = 0; i < amountArea; i++)
             captureTypes.Add((CaptureType)Random.Range(1, 3));
 
@@ -66,8 +65,9 @@ public class GameManager : MonoBehaviour {
     /// </summary>
 	public void GenerateCaptureObjects()
 	{
+        GetComponent<LevelGenerator>().GenerateLevel();
 
-	}
+    }
 
 
     /// <summary>
@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour {
 		foreach (CapturableObject capturableObject in capturableObjects)
 		{
 			capturableObject.Score();
-            Destroy(capturableObject);
+            Destroy(capturableObject.gameObject);
 		}
 
 		//Clearing the all lists
@@ -98,5 +98,10 @@ public class GameManager : MonoBehaviour {
                 Destroy(child.gameObject);
 
         timer = roundTime;
+    }
+
+    public void AddObject(CapturableObject captureObject)
+    {
+        capturableObjects.Add(captureObject);
     }
 }
