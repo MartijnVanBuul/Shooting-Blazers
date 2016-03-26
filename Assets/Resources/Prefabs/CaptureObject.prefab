@@ -87,6 +87,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee2c74f3b34ca144927257d5be515f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GoalCaptureType: 0
+  correctScore: 1
+  neutralScore: 0
+  failScore: -1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

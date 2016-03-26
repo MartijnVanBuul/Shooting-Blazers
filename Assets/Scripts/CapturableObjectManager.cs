@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public enum CaptureType
 {
+    none,
     red,
     blue,
     yellow,
@@ -28,8 +29,10 @@ public class CapturableObjectManager : MonoBehaviour {
     private float circleIncrease = 0.05f;
     private List<GameObject> capturableObjects = new List<GameObject>();
 
-	// Use this for initialization
-	void Update () {
+    private CaptureType circleCaptureType = CaptureType.red;
+
+    // Use this for initialization
+    void Update () {
         if (Input.GetMouseButtonDown(0))
         {
             isCircleStarted = true;
@@ -42,7 +45,10 @@ public class CapturableObjectManager : MonoBehaviour {
             isCircleStarted = false;
             capturableObjects = StopCircle();
             foreach (GameObject capture in capturableObjects)
+            {
+                capture.GetComponent<CapturableObject>().SetCaptureType(circleCaptureType);
                 capture.GetComponent<CapturableObject>().Score();
+            }
         }
 
         if (isCircleStarted)
@@ -96,5 +102,14 @@ public class CapturableObjectManager : MonoBehaviour {
         }
 
         circleRadius += circleIncrease;
+    }
+
+
+    /// <summary>
+    /// Setting the CaptureType of the circle.
+    /// </summary>
+    public void SetCaptureType(CaptureType circleCaptureType)
+    {
+        this.circleCaptureType = circleCaptureType;
     }
 }

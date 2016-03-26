@@ -116,7 +116,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 30, y: -100}
+  m_AnchoredPosition: {x: 100, y: -100}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &147900985
@@ -131,13 +131,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color:
+    r: 0.19607843
+    g: 0.19607843
+    b: 0.19607843
+    a: 1
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_TypeName: 556e697479456e67696e652e55492e4d61736b61626c65477261706869632b43756c6c53746174654368616e6765644576656e742c20556e697479456e67696e652e55492c2056657273696f6e3d312e302e302e302c2043756c747572653d6e65757472616c2c205075626c69634b6579546f6b656e3d6e756c6c
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 30
@@ -148,8 +151,8 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 
 --- !u!222 &147900986
@@ -190,10 +193,10 @@ MonoBehaviour:
   m_Script: {fileID: 1077351063, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
+  m_HorizontalAxis: 486f72697a6f6e74616c
+  m_VerticalAxis: 566572746963616c
+  m_SubmitButton: 5375626d6974
+  m_CancelButton: 43616e63656c
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
@@ -266,6 +269,10 @@ Prefab:
       propertyPath: m_Name
       value: CaptureObject (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 11450630, guid: 80d8110f8615ed74baf69de5d670bc4d, type: 2}
+      propertyPath: GoalCaptureType
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80d8110f8615ed74baf69de5d670bc4d, type: 2}
   m_IsPrefabParent: 0
@@ -304,7 +311,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 30, y: -50.0001}
+  m_AnchoredPosition: {x: 100, y: -50.0001}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &720722349
@@ -319,13 +326,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color:
+    r: 0.19607843
+    g: 0.19607843
+    b: 0.19607843
+    a: 1
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_TypeName: 556e697479456e67696e652e55492e4d61736b61626c65477261706869632b43756c6c53746174654368616e6765644576656e742c20556e697479456e67696e652e55492c2056657273696f6e3d312e302e302e302c2043756c747572653d6e65757472616c2c205075626c69634b6579546f6b656e3d6e756c6c
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 30
@@ -336,10 +346,10 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 30
 --- !u!222 &720722350
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -393,6 +403,10 @@ Prefab:
       propertyPath: m_Name
       value: CaptureObject (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 11450630, guid: 80d8110f8615ed74baf69de5d670bc4d, type: 2}
+      propertyPath: GoalCaptureType
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80d8110f8615ed74baf69de5d670bc4d, type: 2}
   m_IsPrefabParent: 0
@@ -443,6 +457,10 @@ Prefab:
       propertyPath: m_Name
       value: CaptureObject (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 11450630, guid: 80d8110f8615ed74baf69de5d670bc4d, type: 2}
+      propertyPath: GoalCaptureType
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80d8110f8615ed74baf69de5d670bc4d, type: 2}
   m_IsPrefabParent: 0
@@ -488,6 +506,10 @@ Prefab:
     - target: {fileID: 151072, guid: 80d8110f8615ed74baf69de5d670bc4d, type: 2}
       propertyPath: m_Name
       value: CaptureObject (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450630, guid: 80d8110f8615ed74baf69de5d670bc4d, type: 2}
+      propertyPath: GoalCaptureType
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80d8110f8615ed74baf69de5d670bc4d, type: 2}
@@ -564,6 +586,10 @@ Prefab:
     - target: {fileID: 469880, guid: 80d8110f8615ed74baf69de5d670bc4d, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450630, guid: 80d8110f8615ed74baf69de5d670bc4d, type: 2}
+      propertyPath: GoalCaptureType
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80d8110f8615ed74baf69de5d670bc4d, type: 2}
@@ -760,7 +786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 20
-  scoreDisplay: {fileID: 0}
+  scoreDisplay: {fileID: 720722349}
   timerDisplay: {fileID: 147900985}
 --- !u!4 &1875715126 stripped
 Transform:
@@ -797,9 +823,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IgnoreReversedGraphics: 1
   m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
+  m_BlockingMask: {}
 --- !u!114 &1881368162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -900,6 +924,10 @@ Prefab:
     - target: {fileID: 151072, guid: 80d8110f8615ed74baf69de5d670bc4d, type: 2}
       propertyPath: m_Name
       value: CaptureObject (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450630, guid: 80d8110f8615ed74baf69de5d670bc4d, type: 2}
+      propertyPath: GoalCaptureType
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80d8110f8615ed74baf69de5d670bc4d, type: 2}
@@ -1007,6 +1035,10 @@ Prefab:
     - target: {fileID: 151072, guid: 80d8110f8615ed74baf69de5d670bc4d, type: 2}
       propertyPath: m_Name
       value: CaptureObject (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450630, guid: 80d8110f8615ed74baf69de5d670bc4d, type: 2}
+      propertyPath: GoalCaptureType
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80d8110f8615ed74baf69de5d670bc4d, type: 2}
