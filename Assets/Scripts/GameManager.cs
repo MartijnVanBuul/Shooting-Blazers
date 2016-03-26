@@ -82,7 +82,8 @@ public class GameManager : MonoBehaviour {
 		foreach (CapturableObject capturableObject in capturableObjects)
 		{
 			capturableObject.Score();
-            Destroy(capturableObject.gameObject);
+            capturableObject.testAnimation();
+            Destroy(capturableObject.gameObject, 2);
 		}
 
 		//Clearing the all lists

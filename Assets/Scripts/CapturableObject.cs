@@ -6,11 +6,18 @@ public class CapturableObject : MonoBehaviour {
     public CaptureType GoalCaptureType;
     private CaptureType currentCaptureType = CaptureType.none;
 
+    private Animator animPlayer;
+
     public float correctScore;
     public float neutralScore;
     public float failScore;
 
+	void Start(){
+		animPlayer = GetComponentInChildren<Animator>();
+	}
 
+        
+    
 
     /// <summary>
     /// Setting the CaptureType of the object.
@@ -56,6 +63,13 @@ public class CapturableObject : MonoBehaviour {
         else
             GameManager.instance.AddScore(failScore);
     }
+
+
+	public void testAnimation()
+	{
+		Debug.Log("Hallo");
+		animPlayer.SetTrigger("showBubble");
+	}
 
     public void SetCaptureGoal(CaptureType type)
     {
