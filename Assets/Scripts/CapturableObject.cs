@@ -12,7 +12,24 @@ public class CapturableObject : MonoBehaviour {
 
     void Start()
     {
+<<<<<<< HEAD
 
+=======
+        if(GoalCaptureType == CaptureType.red)
+            GetComponentInChildren<MeshRenderer>().material.color = Color.red;
+        else if(GoalCaptureType == CaptureType.blue)
+            GetComponentInChildren<MeshRenderer>().material.color = Color.blue;
+        else if (GoalCaptureType == CaptureType.yellow)
+            GetComponentInChildren<MeshRenderer>().material.color = Color.yellow;
+        else if (GoalCaptureType == CaptureType.purple)
+            GetComponentInChildren<MeshRenderer>().material.color = Color.magenta;
+        else if (GoalCaptureType == CaptureType.green)
+            GetComponentInChildren<MeshRenderer>().material.color = Color.green;
+        else if (GoalCaptureType == CaptureType.orange)
+            GetComponentInChildren<MeshRenderer>().material.color = new Color(1, 1, 0);
+        else
+            GetComponentInChildren<MeshRenderer>().material.color = Color.white;
+>>>>>>> refs/remotes/origin/master
 
     }
 
