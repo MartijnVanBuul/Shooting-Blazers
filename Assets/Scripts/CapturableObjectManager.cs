@@ -15,7 +15,8 @@ public enum CaptureType
     white
 }
 
-public class CapturableObjectManager : MonoBehaviour {
+public class CapturableObjectManager : MonoBehaviour
+{
 
     public GameObject CircleImage;
     public GameObject DisplayCanvas;
@@ -32,14 +33,22 @@ public class CapturableObjectManager : MonoBehaviour {
 
     private CaptureType circleCaptureType = CaptureType.red;
 
+    private GameObject currentCircle;
+
     // Use this for initialization
-    void Update () {
+    void Update()
+    {
         if (Input.GetMouseButtonDown(0))
         {
             isCircleStarted = true;
             circlePosition = StartCircle();
             circleRadius = startRadius;
             capturableObjects.Clear();
+
+            currentCircle = (GameObject)Instantiate(CircleImage, circlePosition, Quaternion.identity);
+            currentCircle.transform.SetParent(DisplayCanvas.transform, true);
+            currentCircle.GetComponent<Image>().material.color = new Color(1, 0, 0, 0.5f);
+            currentCircle.GetComponent<RectTransform>().position = Input.mousePosition;
         }
         else if (Input.GetMouseButtonUp(0))
         {
@@ -67,6 +76,7 @@ public class CapturableObjectManager : MonoBehaviour {
 
         if (Physics.Raycast(ray, out hit, 100))
         {
+
             return hit.point;
         }
 
@@ -81,7 +91,7 @@ public class CapturableObjectManager : MonoBehaviour {
     {
         if (circlePosition != Vector3.zero)
         {
-            Collider[] captureColliders = Physics.OverlapSphere(circlePosition, circleRadius);
+            Collider[] captureColliders = Physics.OverlapSphere(new Vector3(circlePosition.x, 0, circlePosition.z), circleRadius);
             foreach (Collider captureCollider in captureColliders)
                 if (captureCollider.tag == "CaptureObject")
                     capturableObjects.Add(captureCollider.gameObject);
@@ -95,12 +105,8 @@ public class CapturableObjectManager : MonoBehaviour {
     /// </summary>
     private void DrawCircle()
     {
-        if (circlePosition != Vector3.zero)
-        {
-            Collider[] captureColliders = Physics.OverlapSphere(circlePosition, circleRadius);
-        }
-
         circleRadius += circleIncrease;
+        currentCircle.GetComponent<RectTransform>().localScale = new Vector3(circleRadius / 2, circleRadius / 2, 0);
     }
 
 
