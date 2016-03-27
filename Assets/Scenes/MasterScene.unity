@@ -163,10 +163,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AmountOfCircles: {fileID: 1589556958}
-  DisplayCanvas: {fileID: 0}
-  ResourcesCanvas: {fileID: 0}
-  DirectionalLight: {fileID: 0}
-  Clock: {fileID: 0}
+  DisplayCanvas: {fileID: 1881368163}
+  ResourcesCanvas: {fileID: 1422649762}
+  DirectionalLight: {fileID: 1961955464}
+  Clock: {fileID: 1351821163}
   SwitchSensivitie: 1.5
 --- !u!4 &394083882
 Transform:
@@ -371,6 +371,17 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bdfc38024aa4f024282fa3e1f208c694, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1351821163 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11400000, guid: 595cf544943e29a4d9a7b813e4218a3c,
+    type: 2}
+  m_PrefabInternal: {fileID: 28589800}
+  m_Script: {fileID: 11500000, guid: 3a0db685f114bbf4e837ee81aae56661, type: 3}
+--- !u!223 &1422649762 stripped
+Canvas:
+  m_PrefabParentObject: {fileID: 22355380, guid: bdfc38024aa4f024282fa3e1f208c694,
+    type: 2}
+  m_PrefabInternal: {fileID: 973407668}
 --- !u!1 &1434544511
 GameObject:
   m_ObjectHideFlags: 0
