@@ -9,7 +9,7 @@ public class AmountOfCircles : MonoBehaviour
     private List<CaptureType> _captureTypes = new List<CaptureType>();
     public Dictionary<CaptureType, Texture2D> SpriteDictionary;
     public GameObject CircleGUIHolder;
-    [Range(0, 50)] public int MovementSpeed = 20;
+    [Range(0, 200)] public int MovementSpeed = 20;
     private List<GameObject> _circleImages = new List<GameObject>();
 
     [Range(0, 100)] public int OffSet = 30;
@@ -27,7 +27,6 @@ public class AmountOfCircles : MonoBehaviour
     {
         transform.position = _beginPosition;
         _captureTypes = caputerTypes;
-        _currentPosition = 0;
         FillDictonary();
         LoadCirclesOnGUI();
     }
