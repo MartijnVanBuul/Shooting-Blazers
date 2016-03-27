@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour {
     public GUIManager GuiManager;
     public int amountArea = 3;
 
+    public Sprite[] sprites;
+
 	void Awake () {
         instance = this;
 	}
@@ -87,9 +89,17 @@ public class GameManager : MonoBehaviour {
 		//Adding score for each capturableobject in the game
 		foreach (CapturableObject capturableObject in capturableObjects)
 		{
-			capturableObject.Score();
-            capturableObject.testAnimation();
-            Destroy(capturableObject.gameObject, 2);
+			float score = capturableObject.Score();
+            capturableObject.transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(true);
+
+            if (score > 0)
+                capturableObject.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = sprites[0];
+            else if (score == 0)
+                capturableObject.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = sprites[1];
+            else
+                capturableObject.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = sprites[2];
+
+            Destroy(capturableObject.gameObject, capturableObject.testAnimation());
 		}
 
 		//Clearing the all lists
@@ -98,9 +108,8 @@ public class GameManager : MonoBehaviour {
 
 		//Generating new values for the next round:
 		GenerateCaptureAreas ();
-		GenerateCaptureObjects ();
+		Invoke("GenerateCaptureObjects", 2);
 
-        //TODO update UI
         foreach (Transform child in DisplayCanvas.transform)
             if (child.name.Contains("Circle"))
                 Destroy(child.gameObject);

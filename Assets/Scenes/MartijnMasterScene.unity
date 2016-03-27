@@ -135,6 +135,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 595cf544943e29a4d9a7b813e4218a3c, type: 2}
   m_IsPrefabParent: 0
+--- !u!223 &332129247 stripped
+Canvas:
+  m_PrefabParentObject: {fileID: 22355380, guid: bdfc38024aa4f024282fa3e1f208c694,
+    type: 2}
+  m_PrefabInternal: {fileID: 973407668}
 --- !u!1 &394083880
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,6 +168,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AmountOfCircles: {fileID: 1589556958}
+  DisplayCanvas: {fileID: 1881368163}
+  ResourcesCanvas: {fileID: 332129247}
+  DirectionalLight: {fileID: 1961955464}
+  Clock: {fileID: 1587585023}
+  SwitchSensivitie: 1.5
 --- !u!4 &394083882
 Transform:
   m_ObjectHideFlags: 0
@@ -417,6 +427,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!114 &1587585023 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11400000, guid: 595cf544943e29a4d9a7b813e4218a3c,
+    type: 2}
+  m_PrefabInternal: {fileID: 28589800}
+  m_Script: {fileID: 11500000, guid: 3a0db685f114bbf4e837ee81aae56661, type: 3}
 --- !u!114 &1589556958 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11402632, guid: bdfc38024aa4f024282fa3e1f208c694,
@@ -532,6 +548,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CircleImage: {fileID: 139168, guid: 318ef2db27489c44b87ac8efdb5ea35a, type: 2}
   DisplayCanvas: {fileID: 1881368160}
+  blueReligionNormal: {fileID: 0}
+  blueReligionOutlined: {fileID: 0}
+  redReligionNormal: {fileID: 0}
+  redReligionOutlined: {fileID: 0}
   circleRadiusMin: 3
   circleRadiusMax: 8
   circleTimeDuration: 1.5
@@ -552,6 +572,10 @@ MonoBehaviour:
   DisplayCanvas: {fileID: 1881368160}
   GuiManager: {fileID: 394083881}
   amountArea: 3
+  sprites:
+  - {fileID: 21300000, guid: 37603df025fc0844e895c888d80e4f67, type: 3}
+  - {fileID: 21300000, guid: cc1f4239dc115124faa5ce6c65d6a282, type: 3}
+  - {fileID: 21300000, guid: 80907f1bad301904b935c2719661af65, type: 3}
 --- !u!114 &1813470197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,8 +609,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e122450efcbda24468c1eddc18edbe98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Intensity: 0.1
-  MaximumDeviation: 1
+  Intensity: 0.05
+  MaximumDeviation: 0.2
   debug: 0
 --- !u!1 &1881368160
 GameObject:
