@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour {
     public int amountArea = 3;
 
     public Sprite[] sprites;
+    public Clock Clock;
 
 	void Awake () {
         instance = this;
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour {
     public void PlacedCircle()
     {
         GuiManager.PlacedCircle();
+
     }
 
     /// <summary>
@@ -118,6 +120,7 @@ public class GameManager : MonoBehaviour {
 
         //Switch the day
         GuiManager.SwitchDay();
+        SoundManager.Instance.PlaySound(Sounds.NewRound);
 
         timer = roundTime;
     }

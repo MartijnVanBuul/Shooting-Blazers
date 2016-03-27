@@ -371,6 +371,48 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bdfc38024aa4f024282fa3e1f208c694, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &1196115111
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 469434, guid: fcd19a753a4a7174c820742ea61bc251, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 353.19376
+      objectReference: {fileID: 0}
+    - target: {fileID: 469434, guid: fcd19a753a4a7174c820742ea61bc251, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 351.41718
+      objectReference: {fileID: 0}
+    - target: {fileID: 469434, guid: fcd19a753a4a7174c820742ea61bc251, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 469434, guid: fcd19a753a4a7174c820742ea61bc251, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 469434, guid: fcd19a753a4a7174c820742ea61bc251, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 469434, guid: fcd19a753a4a7174c820742ea61bc251, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 469434, guid: fcd19a753a4a7174c820742ea61bc251, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 469434, guid: fcd19a753a4a7174c820742ea61bc251, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: fcd19a753a4a7174c820742ea61bc251, type: 2}
+  m_IsPrefabParent: 0
 --- !u!114 &1351821163 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11400000, guid: 595cf544943e29a4d9a7b813e4218a3c,
@@ -576,8 +618,8 @@ MonoBehaviour:
   blueReligionOutlined: {fileID: 0}
   redReligionNormal: {fileID: 0}
   redReligionOutlined: {fileID: 0}
-  circleRadiusMin: 1
-  circleRadiusMax: 4
+  circleRadiusMin: 2
+  circleRadiusMax: 8
   circleTimeDuration: 1.5
   circleAlpha: 0.5
 --- !u!114 &1813470196
@@ -593,13 +635,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreDisplay: {fileID: 2077445097}
   timerDisplay: {fileID: 1768540558}
+  happyMeter: {fileID: 0}
   DisplayCanvas: {fileID: 1881368160}
   GuiManager: {fileID: 394083881}
   amountArea: 3
   sprites:
-  - {fileID: 21300000, guid: 37603df025fc0844e895c888d80e4f67, type: 3}
+  - {fileID: 0}
   - {fileID: 21300000, guid: cc1f4239dc115124faa5ce6c65d6a282, type: 3}
-  - {fileID: 21300000, guid: 80907f1bad301904b935c2719661af65, type: 3}
+  - {fileID: 0}
 --- !u!114 &1813470197
 MonoBehaviour:
   m_ObjectHideFlags: 0
