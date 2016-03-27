@@ -52,23 +52,25 @@ public class CapturableObject : MonoBehaviour {
     /// <summary>
     /// Adding the score to the GameManager.
     /// </summary>
-    public void Score()
+    public float Score()
     {
         if (GoalCaptureType == currentCaptureType)
-            GameManager.instance.AddScore(correctScore);
-        else if((GoalCaptureType == CaptureType.red && (currentCaptureType == CaptureType.purple || currentCaptureType == CaptureType.orange)) || 
+            return correctScore;
+        else if ((GoalCaptureType == CaptureType.red && (currentCaptureType == CaptureType.purple || currentCaptureType == CaptureType.orange)) ||
                 (GoalCaptureType == CaptureType.blue && (currentCaptureType == CaptureType.purple || currentCaptureType == CaptureType.green)) ||
                 (GoalCaptureType == CaptureType.yellow && (currentCaptureType == CaptureType.green || currentCaptureType == CaptureType.orange)))
-            GameManager.instance.AddScore(neutralScore);
+            return neutralScore;
         else
-            GameManager.instance.AddScore(failScore);
+            return failScore;
     }
 
 
-	public void testAnimation()
+	public float testAnimation()
 	{
 		Debug.Log("Hallo");
 		animPlayer.SetTrigger("showBubble");
+        AnimatorStateInfo info = animPlayer.GetCurrentAnimatorStateInfo(0);
+        return info.length;
 	}
 
     public void SetCaptureGoal(CaptureType type)

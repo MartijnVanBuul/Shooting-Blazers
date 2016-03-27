@@ -552,6 +552,10 @@ MonoBehaviour:
   DisplayCanvas: {fileID: 1881368160}
   GuiManager: {fileID: 394083881}
   amountArea: 3
+  sprites:
+  - {fileID: 21300000, guid: 37603df025fc0844e895c888d80e4f67, type: 3}
+  - {fileID: 21300000, guid: cc1f4239dc115124faa5ce6c65d6a282, type: 3}
+  - {fileID: 21300000, guid: 80907f1bad301904b935c2719661af65, type: 3}
 --- !u!114 &1813470197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,8 +589,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e122450efcbda24468c1eddc18edbe98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Intensity: 0.1
-  MaximumDeviation: 1
+  Intensity: 0.05
+  MaximumDeviation: 0.2
   debug: 0
 --- !u!1 &1881368160
 GameObject:

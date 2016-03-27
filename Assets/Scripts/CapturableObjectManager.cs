@@ -108,15 +108,22 @@ public class CapturableObjectManager : MonoBehaviour
 		return Vector3.zero;
 	}
 
-	/// <summary>
-	/// Method that returns all the objects that are caught in the circle.
-	/// </summary>
-	/// <returns>The list of capturable gameobjects.</returns>
-	private void StopCircle()
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+     //Use the same vars you use to draw your Overlap SPhere to draw your Wire Sphere.
+     Gizmos.DrawWireSphere(new Vector3(circlePosition.x, 0, circlePosition.z), circleRadius/2);
+    }
+
+    /// <summary>
+    /// Method that returns all the objects that are caught in the circle.
+    /// </summary>
+    /// <returns>The list of capturable gameobjects.</returns>
+    private void StopCircle()
 	{
 		if (circlePosition != Vector3.zero)
 		{
-			Collider[] captureColliders = Physics.OverlapSphere(new Vector3(circlePosition.x, 0, circlePosition.z), circleRadius);
+			Collider[] captureColliders = Physics.OverlapSphere(new Vector3(circlePosition.x, 0, circlePosition.z), circleRadius / 2);
 			foreach (Collider captureCollider in captureColliders)
 				if (captureCollider.tag == "CaptureObject")
 					captureCollider.GetComponent<CapturableObject>().SetCaptureType(circleCaptureTypes[circleCount]);
