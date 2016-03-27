@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: RedReligion 1
+  m_Name: RedReligionGlow
   m_Shader: {fileID: 4800000, guid: c2a28368c7cefc64f896dee7276f2da6, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
