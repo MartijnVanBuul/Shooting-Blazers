@@ -41,17 +41,23 @@ public class LevelGenerator : MonoBehaviour
 					return;
 				}
 			}
-            int objectNumber = Random.Range(0, 2);
-            if (objectNumber == 0)
+            int objectNumber = Random.Range(0, 100);
+            if (objectNumber < 40)
             {
-                GameObject go = (GameObject)Instantiate(GameObj[objectNumber], new Vector3(x, y, z), Quaternion.identity);
+                GameObject go = (GameObject)Instantiate(GameObj[0], new Vector3(x, y, z), Quaternion.identity);
                 go.GetComponent<CapturableObject>().SetCaptureGoal(CaptureType.red);
                 GameManager.instance.AddObject(go.GetComponent<CapturableObject>());
             }
-            else if (objectNumber == 1)
+            else if (objectNumber < 80)
             {
-                GameObject go = (GameObject)Instantiate(GameObj[objectNumber], new Vector3(x, y, z), Quaternion.identity);
+                GameObject go = (GameObject)Instantiate(GameObj[1], new Vector3(x, y, z), Quaternion.identity);
                 go.GetComponent<CapturableObject>().SetCaptureGoal(CaptureType.blue);
+                GameManager.instance.AddObject(go.GetComponent<CapturableObject>());
+            }
+            else
+            {
+                GameObject go = (GameObject)Instantiate(GameObj[2], new Vector3(x, y, z), Quaternion.identity);
+                go.GetComponent<CapturableObject>().SetCaptureGoal(CaptureType.purple);
                 GameManager.instance.AddObject(go.GetComponent<CapturableObject>());
             }
         }

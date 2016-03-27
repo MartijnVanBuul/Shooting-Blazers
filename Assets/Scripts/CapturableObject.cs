@@ -60,7 +60,7 @@ public class CapturableObject : MonoBehaviour {
             GetComponentInChildren<ObjectMoodController>().SetState(ObjectMoodController.MoodState.happy);
         else if ((GoalCaptureType == CaptureType.red && (currentCaptureType == CaptureType.purple || currentCaptureType == CaptureType.orange)) ||
                 (GoalCaptureType == CaptureType.blue && (currentCaptureType == CaptureType.purple || currentCaptureType == CaptureType.green)) ||
-                (GoalCaptureType == CaptureType.yellow && (currentCaptureType == CaptureType.green || currentCaptureType == CaptureType.orange)))
+                (GoalCaptureType == CaptureType.purple && (currentCaptureType == CaptureType.red || currentCaptureType == CaptureType.blue)))
             GetComponentInChildren<ObjectMoodController>().SetState(ObjectMoodController.MoodState.neutral);
         else
             GetComponentInChildren<ObjectMoodController>().SetState(ObjectMoodController.MoodState.angry);
@@ -75,7 +75,7 @@ public class CapturableObject : MonoBehaviour {
             return correctScore;
         else if ((GoalCaptureType == CaptureType.red && (currentCaptureType == CaptureType.purple || currentCaptureType == CaptureType.orange)) ||
                 (GoalCaptureType == CaptureType.blue && (currentCaptureType == CaptureType.purple || currentCaptureType == CaptureType.green)) ||
-                (GoalCaptureType == CaptureType.yellow && (currentCaptureType == CaptureType.green || currentCaptureType == CaptureType.orange)))
+                (GoalCaptureType == CaptureType.purple && (currentCaptureType == CaptureType.red || currentCaptureType == CaptureType.blue)))
             return neutralScore;
         else
             return failScore;

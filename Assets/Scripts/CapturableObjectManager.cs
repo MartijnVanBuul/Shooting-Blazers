@@ -84,10 +84,6 @@ public class CapturableObjectManager : MonoBehaviour
 		{
             StopCircle();
             SoundManager.Instance.PlaySound(Sounds.Placement);
-
-
-            if (circleCount >= circleCaptureTypes.Count)
-		        circleCount = 0;
 		}
 	}
 
@@ -134,9 +130,12 @@ public class CapturableObjectManager : MonoBehaviour
 
         GameManager.instance.PlacedCircle();
 
-		if (circleCount == circleCaptureTypes.Count)
-			GameManager.instance.NextRound();
-	}
+        if (circleCount == circleCaptureTypes.Count)
+        {
+            GameManager.instance.NextRound();
+            circleCount = 0;
+        }
+        }
 
     /// <summary>
     /// Method for drawing the circle.
