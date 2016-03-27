@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour {
     public GUIManager GuiManager;
     public int amountArea = 3;
 
+    public int minCircles = 3;
+    public int maxCircles = 4;
+
     public Sprite[] sprites;
     public Clock Clock;
 
@@ -64,7 +67,15 @@ public class GameManager : MonoBehaviour {
     /// </summary>
     public void GenerateCaptureAreas()
     {
-        for (int i = 0; i < amountArea; i++)
+        int amountCircles = Random.Range(minCircles, maxCircles + 1);
+        for (int i = 0; i < amountCircles - 1; i++)
+            captureTypes.Add((CaptureType)Random.Range(1, 3));
+
+        if (!captureTypes.Contains(CaptureType.red))
+            captureTypes.Add(CaptureType.red);
+        else if (!captureTypes.Contains(CaptureType.blue))
+            captureTypes.Add(CaptureType.blue);
+        else
             captureTypes.Add((CaptureType)Random.Range(1, 3));
 
         GetComponent<CapturableObjectManager>().SetCaptureTypes(captureTypes);
