@@ -105,6 +105,9 @@ public class GameManager : MonoBehaviour {
             if (child.name.Contains("Circle"))
                 Destroy(child.gameObject);
 
+        //Switch the day
+        GuiManager.SwitchDay();
+
         timer = roundTime;
     }
 
