@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour {
     public int amountArea = 3;
 
     public Sprite[] sprites;
+    public Clock Clock;
 
 	void Awake () {
         instance = this;
