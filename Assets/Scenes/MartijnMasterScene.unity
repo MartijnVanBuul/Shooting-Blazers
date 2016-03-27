@@ -870,7 +870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CircleGUIHolder: {fileID: 159714, guid: e633ce21512cfca49b5dfee151e2f603, type: 2}
-  MovementSpeed: 130
+  MovementSpeed: 200
   OffSet: 70
   ImageSizes: 60
 --- !u!1001 &1764006050
@@ -1107,7 +1107,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roundNumber: 1
   scoreDisplay: {fileID: 0}
-  timerDisplay: {fileID: 0}
   happyMeter: {fileID: 84654973}
   DisplayCanvas: {fileID: 1881368160}
   GuiManager: {fileID: 394083881}
