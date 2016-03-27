@@ -1262,6 +1262,7 @@ MonoBehaviour:
   circleRadiusMax: 8.5
   circleTimeDuration: 1.3
   circleAlpha: 0.4
+  DirectionalLight: {fileID: 1961955464}
 --- !u!114 &1813470196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1279,6 +1280,8 @@ MonoBehaviour:
   DisplayCanvas: {fileID: 1881368160}
   GuiManager: {fileID: 394083881}
   amountArea: 3
+  minCircles: 3
+  maxCircles: 4
   sprites:
   - {fileID: 21300000, guid: 06ba53dc1de2b7c4d9d6b73075968bcc, type: 3}
   - {fileID: 21300000, guid: cc1f4239dc115124faa5ce6c65d6a282, type: 3}
@@ -1298,6 +1301,7 @@ MonoBehaviour:
   GameObj:
   - {fileID: 134462, guid: bccbff913a63ffb40bf82bea51a691ef, type: 2}
   - {fileID: 182282, guid: f223b33b1705ee44d983f86626f5d73e, type: 2}
+  - {fileID: 194610, guid: 937115fbd63ba4b41b27bab8899f904d, type: 2}
   Timeout: 10000
   radius: 0.9
   CountMin: 18

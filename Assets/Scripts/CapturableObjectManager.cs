@@ -29,7 +29,9 @@ public class CapturableObjectManager : MonoBehaviour
 	public float circleRadiusMin = 0.8f;
 	public float circleRadiusMax = 3.0f;
 	public float circleTimeDuration = 1.5f;
-	public float circleAlpha = 0.5f;
+    public float circleAlpha = 0.5f;
+
+    public Light DirectionalLight;
 
 	private GameObject currentCircle;
 	private Material currentCircleMaterial;
@@ -49,7 +51,7 @@ public class CapturableObjectManager : MonoBehaviour
 	{
 		circleTimeNow = (circleTimeNow + Time.deltaTime) % circleTimeDuration;
 
-		if (Input.GetMouseButtonDown(0) && circleCount < circleCaptureTypes.Count)
+		if (Input.GetMouseButtonDown(0) && circleCount < circleCaptureTypes.Count && DirectionalLight.intensity >= 1)
 		{
             GetComponentInChildren<ScreenShake>().DoScreenShake(0.3f);
 			isCircleStarted = true;
