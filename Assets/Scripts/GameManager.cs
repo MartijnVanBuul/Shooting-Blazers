@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour {
     private List<CaptureType> captureTypes = new List<CaptureType>();
 
     public Text scoreDisplay;
-    public Text timerDisplay;
     public Slider happyMeter;
     public GameObject DisplayCanvas;
     public GUIManager GuiManager;
@@ -43,8 +42,6 @@ public class GameManager : MonoBehaviour {
 
     void Update () {
         timer -= Time.deltaTime;
-
-        timerDisplay.text = timer.ToString();
 	}
 
     public void PlacedCircle()

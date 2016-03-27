@@ -84,7 +84,6 @@ public class CapturableObject : MonoBehaviour {
 
 	public float testAnimation()
 	{
-		Debug.Log("Hallo");
 		animPlayer.SetTrigger("showBubble");
         AnimatorStateInfo info = animPlayer.GetCurrentAnimatorStateInfo(0);
         return info.length;
