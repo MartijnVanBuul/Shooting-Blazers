@@ -24,7 +24,7 @@ public class CapturableObject : MonoBehaviour {
 
     void Update()
     {
-        SetHighlightColor(false);
+        SetHighlight(false);
     }
 
     /// <summary>
@@ -110,30 +110,11 @@ public class CapturableObject : MonoBehaviour {
     /// Setting or removing the highlight from a tile.
     /// </summary>
     /// <param name="highlight">True if it will be highlighted, false if it will be original color.</param>
-    public void SetHighlightColor(bool highlight)
+    public void SetHighlight(bool highlight)
     {
-            if (highlight)
-                meshRenderer.material.color = ChangeColorBrightness(originalColor, 3f);
-            else
-                meshRenderer.material.color = originalColor;
-    }
-
-    /// <summary>
-    /// Creates color with corrected brightness.
-    /// </summary>
-    /// <param name="color">Color to correct.</param>
-    /// <param name="correctionFactor">The brightness correction factor. This will be a multiplier.
-    /// <returns>Corrected Color.</returns>
-    public static Color ChangeColorBrightness(Color color, float correctionFactor)
-    {
-        float red = color.r;
-        float green = color.g;
-        float blue = color.b;
-
-        red *= correctionFactor;
-        green *= correctionFactor;
-        blue *= correctionFactor;
-
-        return new Color(red, green, blue, color.a);
+        if(highlight)
+            transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+        else
+            transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
     }
 }
