@@ -20,6 +20,10 @@ public class CapturableObjectManager : MonoBehaviour
 	public GameObject CircleImage;
 	public GameObject DisplayCanvas;
 
+    public Material blueReligionNormal;
+    public Material blueReligionOutlined;
+    public Material redReligionNormal;
+    public Material redReligionOutlined;
 
 	public float circleRadiusMin = 0.8f;
 	public float circleRadiusMax = 3.0f;
@@ -139,6 +143,20 @@ public class CapturableObjectManager : MonoBehaviour
         foreach(Collider collider in Physics.OverlapSphere(new Vector3(circlePosition.x, 0, circlePosition.z), circleRadius / 2))
         {
             //Do shader stuff.
+            /*if (collider.GetComponent<MeshRenderer>().material == blueReligionNormal)
+                GetComponentInChildren<MeshRenderer>().material = blueReligionOutlined;*/
+            /*else if (GoalCaptureType == CaptureType.blue)
+                GetComponentInChildren<MeshRenderer>().material.color = Color.blue;
+            else if (GoalCaptureType == CaptureType.yellow)
+                GetComponentInChildren<MeshRenderer>().material.color = Color.yellow;
+            else if (GoalCaptureType == CaptureType.purple)
+                GetComponentInChildren<MeshRenderer>().material.color = Color.magenta;
+            else if (GoalCaptureType == CaptureType.green)
+                GetComponentInChildren<MeshRenderer>().material.color = Color.green;
+            else if (GoalCaptureType == CaptureType.orange)
+                GetComponentInChildren<MeshRenderer>().material.color = new Color(1, 0.5f, 0);
+            else
+                GetComponentInChildren<MeshRenderer>().material.color = Color.white;*/
         }
 	}
 

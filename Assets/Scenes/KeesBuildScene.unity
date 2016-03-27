@@ -135,6 +135,48 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 595cf544943e29a4d9a7b813e4218a3c, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &358532799
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 469880, guid: 80d8110f8615ed74baf69de5d670bc4d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 469880, guid: 80d8110f8615ed74baf69de5d670bc4d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 469880, guid: 80d8110f8615ed74baf69de5d670bc4d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 469880, guid: 80d8110f8615ed74baf69de5d670bc4d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 469880, guid: 80d8110f8615ed74baf69de5d670bc4d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 469880, guid: 80d8110f8615ed74baf69de5d670bc4d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 469880, guid: 80d8110f8615ed74baf69de5d670bc4d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 469880, guid: 80d8110f8615ed74baf69de5d670bc4d, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 80d8110f8615ed74baf69de5d670bc4d, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &394083880
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,6 +486,7 @@ GameObject:
   - 114: {fileID: 1813470195}
   - 114: {fileID: 1813470196}
   - 114: {fileID: 1813470197}
+  - 114: {fileID: 1813470198}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -531,8 +574,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CircleImage: {fileID: 139168, guid: 318ef2db27489c44b87ac8efdb5ea35a, type: 2}
   DisplayCanvas: {fileID: 1881368160}
+  blueReligionNormal: {fileID: 2100000, guid: 6efa3ec7f00e08c4689c974d696f9cf2, type: 2}
+  blueReligionOutlined: {fileID: 2100000, guid: 862af417b4027f2498e233e45b0ff8ea,
+    type: 2}
+  redReligionNormal: {fileID: 2100000, guid: 697deede892a54948a4958be6e7ca8ed, type: 2}
+  redReligionOutlined: {fileID: 2100000, guid: e0635c12f9f1e974791e5b6b93494352, type: 2}
   circleRadiusMin: 3
-  circleRadiusMax: 10
+  circleRadiusMax: 8
   circleTimeDuration: 1.5
   circleAlpha: 0.5
 --- !u!114 &1813470196
@@ -573,6 +621,20 @@ MonoBehaviour:
   yMax: 1
   zMin: -10
   zMax: 5
+--- !u!114 &1813470198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1813470189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e122450efcbda24468c1eddc18edbe98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Intensity: 0.1
+  MaximumDeviation: 1
+  debug: 0
 --- !u!1 &1881368160
 GameObject:
   m_ObjectHideFlags: 0
