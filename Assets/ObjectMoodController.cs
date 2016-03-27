@@ -21,7 +21,7 @@ public class ObjectMoodController : MonoBehaviour {
     void Awake()
     {
         objectAC = GetComponent<Animator>();
-        SetState(MoodState.neutral);
+        SetState(mood);
     }
 
     //Set the moodState
