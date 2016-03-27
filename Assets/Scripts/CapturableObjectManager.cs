@@ -146,7 +146,7 @@ public class CapturableObjectManager : MonoBehaviour
         
         foreach(Collider collider in Physics.OverlapSphere(new Vector3(circlePosition.x, 0, circlePosition.z), circleRadius / 2).Where(c => c.tag == "CaptureObject"))
         {
-            collider.GetComponentInChildren<CapturableObject>().SetHighlightColor(true);
+            collider.GetComponentInChildren<CapturableObject>().SetHighlight(true);
         }
 	}
 

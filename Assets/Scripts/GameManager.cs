@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour {
 		{
 			float score = capturableObject.Score();
             capturableObject.transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(true);
-
+            
             if (score > 0)
                 capturableObject.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = sprites[0];
             else if (score == 0)
