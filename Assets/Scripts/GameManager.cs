@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour {
 
     public Text scoreDisplay;
     public Text timerDisplay;
+    public Slider happyMeter;
     public GameObject DisplayCanvas;
     public GUIManager GuiManager;
     public int amountArea = 3;
@@ -99,6 +100,7 @@ public class GameManager : MonoBehaviour {
             else
                 capturableObject.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = sprites[2];
 
+            happyMeter.value += score;
             Destroy(capturableObject.gameObject, capturableObject.testAnimation());
 		}
 
