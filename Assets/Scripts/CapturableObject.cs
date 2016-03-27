@@ -22,6 +22,11 @@ public class CapturableObject : MonoBehaviour {
         originalColor = meshRenderer.material.color;
 	}
 
+    void Update()
+    {
+        SetHighlightColor(false);
+    }
+
     /// <summary>
     /// Setting the CaptureType of the object.
     /// </summary>

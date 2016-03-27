@@ -85,10 +85,13 @@ public class CapturableObjectManager : MonoBehaviour
             if (circleCount >= circleCaptureTypes.Count)
 		        circleCount = 0;
 		}
-
-	    if (isCircleStarted)
-			DrawCircle();
 	}
+
+    void LateUpdate()
+    {
+        if (isCircleStarted)
+            DrawCircle();
+    }
 
 	/// <summary>
 	/// Method for starting the circle;
