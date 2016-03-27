@@ -77,10 +77,14 @@ public class CapturableObjectManager : MonoBehaviour
 
 			currentCircle.GetComponent<Image>().material = currentCircleMaterial;
 			currentCircle.GetComponent<RectTransform>().position = Input.mousePosition;
-		}
+
+            SoundManager.Instance.PlaySound(Sounds.Placement);
+        }
 		else if (!Input.GetMouseButton(0) && isCircleStarted && circleCount < circleCaptureTypes.Count)
 		{
             StopCircle();
+            SoundManager.Instance.PlaySound(Sounds.Placement);
+
 
             if (circleCount >= circleCaptureTypes.Count)
 		        circleCount = 0;

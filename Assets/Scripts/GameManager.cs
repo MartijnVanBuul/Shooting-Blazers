@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour {
     public void PlacedCircle()
     {
         GuiManager.PlacedCircle();
+
     }
 
     /// <summary>
@@ -116,6 +117,7 @@ public class GameManager : MonoBehaviour {
 
         //Switch the day
         GuiManager.SwitchDay();
+        SoundManager.Instance.PlaySound(Sounds.NewRound);
 
         timer = roundTime;
     }
