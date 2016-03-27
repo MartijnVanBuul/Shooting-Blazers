@@ -20,6 +20,10 @@ public class CapturableObjectManager : MonoBehaviour
 	public GameObject CircleImage;
 	public GameObject DisplayCanvas;
 
+    public Material blueReligionNormal;
+    public Material blueReligionOutlined;
+    public Material redReligionNormal;
+    public Material redReligionOutlined;
 
 	public float circleRadiusMin = 0.8f;
 	public float circleRadiusMax = 3.0f;
@@ -46,7 +50,7 @@ public class CapturableObjectManager : MonoBehaviour
 
 		if (Input.GetMouseButtonDown(0) && circleCount < circleCaptureTypes.Count)
 		{
-
+            GetComponentInChildren<ScreenShake>().DoScreenShake(0.1f);
 			isCircleStarted = true;
 			circlePosition = StartCircle();
 
@@ -127,14 +131,33 @@ public class CapturableObjectManager : MonoBehaviour
 			GameManager.instance.NextRound();
 	}
 
-	/// <summary>
-	/// Method for drawing the circle.
-	/// </summary>
-	private void DrawCircle()
+    /// <summary>
+    /// Method for drawing the circle.
+    /// </summary>
+    private void DrawCircle()
 	{
 		circleRadius = circleRadiusMin + (circleRadiusMax - circleRadiusMin) * 0.5f * (1 + Mathf.Sin(2 * Mathf.PI * circleTimeNow / circleTimeDuration));
 
-		currentCircle.GetComponent<RectTransform>().localScale = new Vector3(circleRadius / 2, circleRadius / 2, 0);
+		currentCircle.GetComponent<RectTransform>().localScale = new Vector3(circleRadius / 1.4f, circleRadius / 1.4f, 0);
+        
+        foreach(Collider collider in Physics.OverlapSphere(new Vector3(circlePosition.x, 0, circlePosition.z), circleRadius / 2))
+        {
+            //Do shader stuff.
+            /*if (collider.GetComponent<MeshRenderer>().material == blueReligionNormal)
+                GetComponentInChildren<MeshRenderer>().material = blueReligionOutlined;*/
+            /*else if (GoalCaptureType == CaptureType.blue)
+                GetComponentInChildren<MeshRenderer>().material.color = Color.blue;
+            else if (GoalCaptureType == CaptureType.yellow)
+                GetComponentInChildren<MeshRenderer>().material.color = Color.yellow;
+            else if (GoalCaptureType == CaptureType.purple)
+                GetComponentInChildren<MeshRenderer>().material.color = Color.magenta;
+            else if (GoalCaptureType == CaptureType.green)
+                GetComponentInChildren<MeshRenderer>().material.color = Color.green;
+            else if (GoalCaptureType == CaptureType.orange)
+                GetComponentInChildren<MeshRenderer>().material.color = new Color(1, 0.5f, 0);
+            else
+                GetComponentInChildren<MeshRenderer>().material.color = Color.white;*/
+        }
 	}
 
 
