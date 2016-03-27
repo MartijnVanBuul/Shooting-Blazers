@@ -1182,6 +1182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dfa126b48ca894489030d53f414997b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roundNumber: 1
   scoreDisplay: {fileID: 0}
   timerDisplay: {fileID: 1768540558}
   happyMeter: {fileID: 84654973}
@@ -1212,14 +1213,18 @@ MonoBehaviour:
   - {fileID: 194610, guid: 937115fbd63ba4b41b27bab8899f904d, type: 2}
   Timeout: 10000
   radius: 0.9
-  CountMin: 18
-  CountMax: 33
+  CountMin: 20
+  CountMax: 28
   xMin: -4.5
   xMax: 4.5
   yMin: 1
   yMax: 1
   zMin: -7.5
   zMax: 5
+  ratioRed: 45
+  ratioBlue: 45
+  ratioPurple: 10
+  increasePurple: 2
 --- !u!114 &1813470198
 MonoBehaviour:
   m_ObjectHideFlags: 0

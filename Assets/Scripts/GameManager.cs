@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
 
+    public int roundNumber = 1;
+
     private float score;
     private float timer;
     private float roundTime = 20;
@@ -48,7 +50,6 @@ public class GameManager : MonoBehaviour {
     public void PlacedCircle()
     {
         GuiManager.PlacedCircle();
-
     }
 
     /// <summary>
@@ -67,19 +68,28 @@ public class GameManager : MonoBehaviour {
     /// </summary>
     public void GenerateCaptureAreas()
     {
-        int amountCircles = Random.Range(minCircles, maxCircles + 1);
-        for (int i = 0; i < amountCircles - 1; i++)
-            captureTypes.Add((CaptureType)Random.Range(1, 3));
-
-        if (!captureTypes.Contains(CaptureType.red))
-            captureTypes.Add(CaptureType.red);
-        else if (!captureTypes.Contains(CaptureType.blue))
-            captureTypes.Add(CaptureType.blue);
+        if (roundNumber == 1)
+        {
+            int amountCircles = Random.Range(minCircles, maxCircles + 1);
+            for (int i = 0; i < amountCircles; i++)
+                captureTypes.Add(CaptureType.red);
+        }
         else
-            captureTypes.Add((CaptureType)Random.Range(1, 3));
+        {
+            int amountCircles = Random.Range(minCircles, maxCircles + 1);
+            for (int i = 0; i < amountCircles - 1; i++)
+                captureTypes.Add((CaptureType)Random.Range(1, 3));
 
+            if (!captureTypes.Contains(CaptureType.red))
+                captureTypes.Add(CaptureType.red);
+            else if (!captureTypes.Contains(CaptureType.blue))
+                captureTypes.Add(CaptureType.blue);
+            else
+                captureTypes.Add((CaptureType)Random.Range(1, 3));
+        }
         GetComponent<CapturableObjectManager>().SetCaptureTypes(captureTypes);
         GuiManager.SetCircles(captureTypes);
+
     }
 
     /// <summary>
@@ -121,9 +131,9 @@ public class GameManager : MonoBehaviour {
 		capturableObjects.Clear ();
         captureTypes.Clear();
 
-		//Generating new values for the next round:
-		GenerateCaptureAreas ();
-		Invoke("GenerateCaptureObjects", 2);
+        //Generating new values for the next round:
+        Invoke("GenerateCaptureAreas", 1.5f);
+        Invoke("GenerateCaptureObjects", 1.5f);
 
         foreach (Transform child in DisplayCanvas.transform)
             if (child.name.Contains("Circle"))
@@ -134,6 +144,8 @@ public class GameManager : MonoBehaviour {
         SoundManager.Instance.PlaySound(Sounds.NewRound);
 
         timer = roundTime;
+
+        roundNumber++;
     }
 
     public void AddObject(CapturableObject captureObject)

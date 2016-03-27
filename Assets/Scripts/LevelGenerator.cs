@@ -16,8 +16,11 @@ public class LevelGenerator : MonoBehaviour
 	public float zMin = -10.0f;
 	public float zMax = 10.0f;
 
+    public int ratioRed;
+    public int ratioBlue;
+    public int ratioPurple;
 
-    private int roundNumber = 1;
+    public int increasePurple = 5;
 
     public void GenerateLevel()
 	{
@@ -45,33 +48,52 @@ public class LevelGenerator : MonoBehaviour
 				}
 			}
 
-            if(roundNumber == 1)
-            {
-
-            }
-            int objectNumber = Random.Range(0, 100);
-            if (objectNumber < 40)
+            if (GameManager.instance.roundNumber == 1)
             {
                 GameObject go = (GameObject)Instantiate(GameObj[0], new Vector3(x, y, z), Quaternion.identity);
                 go.GetComponent<CapturableObject>().SetCaptureGoal(CaptureType.red);
                 GameManager.instance.AddObject(go.GetComponent<CapturableObject>());
             }
-            else if (objectNumber < 80)
+            else if (GameManager.instance.roundNumber == 2)
             {
-                GameObject go = (GameObject)Instantiate(GameObj[1], new Vector3(x, y, z), Quaternion.identity);
-                go.GetComponent<CapturableObject>().SetCaptureGoal(CaptureType.blue);
-                GameManager.instance.AddObject(go.GetComponent<CapturableObject>());
+                if (Random.Range(0, 2) == 0)
+                {
+                    GameObject go = (GameObject)Instantiate(GameObj[0], new Vector3(x, y, z), Quaternion.identity);
+                    go.GetComponent<CapturableObject>().SetCaptureGoal(CaptureType.red);
+                    GameManager.instance.AddObject(go.GetComponent<CapturableObject>());
+                }
+                else
+                {
+                    GameObject go = (GameObject)Instantiate(GameObj[1], new Vector3(x, y, z), Quaternion.identity);
+                    go.GetComponent<CapturableObject>().SetCaptureGoal(CaptureType.blue);
+                    GameManager.instance.AddObject(go.GetComponent<CapturableObject>());
+                }
             }
             else
             {
-                GameObject go = (GameObject)Instantiate(GameObj[2], new Vector3(x, y, z), Quaternion.identity);
-                go.GetComponent<CapturableObject>().SetCaptureGoal(CaptureType.purple);
-                GameManager.instance.AddObject(go.GetComponent<CapturableObject>());
+                int objectNumber = Random.Range(0, (ratioBlue + ratioRed + ratioPurple) + 1);
+                if (objectNumber < ratioRed)
+                {
+                    GameObject go = (GameObject)Instantiate(GameObj[0], new Vector3(x, y, z), Quaternion.identity);
+                    go.GetComponent<CapturableObject>().SetCaptureGoal(CaptureType.red);
+                    GameManager.instance.AddObject(go.GetComponent<CapturableObject>());
+                }
+                else if (objectNumber < (ratioRed + ratioBlue))
+                {
+                    GameObject go = (GameObject)Instantiate(GameObj[1], new Vector3(x, y, z), Quaternion.identity);
+                    go.GetComponent<CapturableObject>().SetCaptureGoal(CaptureType.blue);
+                    GameManager.instance.AddObject(go.GetComponent<CapturableObject>());
+                }
+                else
+                {
+                    GameObject go = (GameObject)Instantiate(GameObj[2], new Vector3(x, y, z), Quaternion.identity);
+                    go.GetComponent<CapturableObject>().SetCaptureGoal(CaptureType.purple);
+                    GameManager.instance.AddObject(go.GetComponent<CapturableObject>());
+                }
             }
-
-            roundNumber++;
         }
-	}
+        ratioPurple += increasePurple;
+    }
 }
 
 
