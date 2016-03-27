@@ -55,6 +55,15 @@ public class CapturableObject : MonoBehaviour {
             else if (circleCaptureType == CaptureType.yellow)
                 currentCaptureType = CaptureType.orange;
         }
+
+        if (GoalCaptureType == currentCaptureType)
+            GetComponentInChildren<ObjectMoodController>().SetState(ObjectMoodController.MoodState.happy);
+        else if ((GoalCaptureType == CaptureType.red && (currentCaptureType == CaptureType.purple || currentCaptureType == CaptureType.orange)) ||
+                (GoalCaptureType == CaptureType.blue && (currentCaptureType == CaptureType.purple || currentCaptureType == CaptureType.green)) ||
+                (GoalCaptureType == CaptureType.yellow && (currentCaptureType == CaptureType.green || currentCaptureType == CaptureType.orange)))
+            GetComponentInChildren<ObjectMoodController>().SetState(ObjectMoodController.MoodState.neutral);
+        else
+            GetComponentInChildren<ObjectMoodController>().SetState(ObjectMoodController.MoodState.angry);
     }
 
     /// <summary>

@@ -1,0 +1,219 @@
+fileFormatVersion: 2
+guid: b16e0570dba4ffa44badf220aabd38da
+timeCreated: 1459078174
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: angryBrow_lft
+    100002: angryBrow_rgt
+    100004: armBot
+    100006: armBot 1
+    100008: arms
+    100010: armTop
+    100012: armTop 1
+    100014: bodyBone
+    100016: elbow_lft
+    100018: elbow_rgt
+    100020: eyeMain_lft
+    100022: eyeMain_rgt
+    100024: facceNormal
+    100026: face
+    100028: face_main
+    100030: faceAngry
+    100032: faceHappy
+    100034: feet
+    100036: feet 1
+    100038: foot_lft
+    100040: foot_rgt
+    100042: hand_lft
+    100044: hand_rgt
+    100046: hips
+    100048: knee_lft
+    100050: knee_rgt
+    100052: leg_lft
+    100054: leg_rgt
+    100056: legBot
+    100058: legBot 1
+    100060: legTop
+    100062: legTop 1
+    100064: limbs_hand
+    100066: limbs_hand_angry
+    100068: limbs_hand_happy
+    100070: limbs_lft
+    100072: limbs_rgt
+    100074: mouthAngry
+    100076: mouthHappy
+    100078: mouthNormal
+    100080: pupil_lft
+    100082: pupil_rgt
+    100084: shoulder_lft
+    100086: shoulder_rgt
+    100088: squareBody
+    100090: //RootNode
+    400000: angryBrow_lft
+    400002: angryBrow_rgt
+    400004: armBot
+    400006: armBot 1
+    400008: arms
+    400010: armTop
+    400012: armTop 1
+    400014: bodyBone
+    400016: elbow_lft
+    400018: elbow_rgt
+    400020: eyeMain_lft
+    400022: eyeMain_rgt
+    400024: facceNormal
+    400026: face
+    400028: face_main
+    400030: faceAngry
+    400032: faceHappy
+    400034: feet
+    400036: feet 1
+    400038: foot_lft
+    400040: foot_rgt
+    400042: hand_lft
+    400044: hand_rgt
+    400046: hips
+    400048: knee_lft
+    400050: knee_rgt
+    400052: leg_lft
+    400054: leg_rgt
+    400056: legBot
+    400058: legBot 1
+    400060: legTop
+    400062: legTop 1
+    400064: limbs_hand
+    400066: limbs_hand_angry
+    400068: limbs_hand_happy
+    400070: limbs_lft
+    400072: limbs_rgt
+    400074: mouthAngry
+    400076: mouthHappy
+    400078: mouthNormal
+    400080: pupil_lft
+    400082: pupil_rgt
+    400084: shoulder_lft
+    400086: shoulder_rgt
+    400088: squareBody
+    400090: //RootNode
+    2300000: angryBrow_lft
+    2300002: angryBrow_rgt
+    2300004: eyeMain_lft
+    2300006: eyeMain_rgt
+    2300008: mouthAngry
+    2300010: mouthHappy
+    2300012: mouthNormal
+    2300014: pupil_lft
+    2300016: pupil_rgt
+    3300000: angryBrow_lft
+    3300002: angryBrow_rgt
+    3300004: eyeMain_lft
+    3300006: eyeMain_rgt
+    3300008: mouthAngry
+    3300010: mouthHappy
+    3300012: mouthNormal
+    3300014: pupil_lft
+    3300016: pupil_rgt
+    4300000: squareBody
+    4300002: armBot
+    4300004: armTop
+    4300006: legTop
+    4300008: legBot
+    4300010: feet
+    4300012: armBot
+    4300014: armTop
+    4300016: legTop
+    4300018: legBot
+    4300020: feet
+    4300022: limbs_hand
+    4300024: limbs_hand_happy
+    4300026: limbs_hand_angry
+    4300028: eyeMain_lft
+    4300030: eyeMain_rgt
+    4300032: pupil_lft
+    4300034: pupil_rgt
+    4300036: mouthNormal
+    4300038: mouthAngry
+    4300040: angryBrow_lft
+    4300042: angryBrow_rgt
+    4300044: mouthHappy
+    9500000: //RootNode
+    13700000: armBot
+    13700002: armBot 1
+    13700004: armTop
+    13700006: armTop 1
+    13700008: feet
+    13700010: feet 1
+    13700012: legBot
+    13700014: legBot 1
+    13700016: legTop
+    13700018: legTop 1
+    13700020: limbs_hand
+    13700022: limbs_hand_angry
+    13700024: limbs_hand_happy
+    13700026: squareBody
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 100
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

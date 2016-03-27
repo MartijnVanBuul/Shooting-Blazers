@@ -4,7 +4,7 @@ using System.Linq;
 
 public class LevelGenerator : MonoBehaviour 
 {
-	public GameObject GameObj;
+	public GameObject[] GameObj;
 	public int Timeout = 10000;
 	public float radius = 1.0f;
 	public int CountMin = 8;
@@ -41,10 +41,20 @@ public class LevelGenerator : MonoBehaviour
 					return;
 				}
 			}
-			GameObject go = (GameObject)Instantiate(GameObj, new Vector3(x, y, z), Quaternion.identity);
-            go.GetComponent<CapturableObject>().SetCaptureGoal((CaptureType)Random.Range(1, 3));
-            GameManager.instance.AddObject(go.GetComponent<CapturableObject>());
-		}
+            int objectNumber = Random.Range(0, 2);
+            if (objectNumber == 0)
+            {
+                GameObject go = (GameObject)Instantiate(GameObj[objectNumber], new Vector3(x, y, z), Quaternion.identity);
+                go.GetComponent<CapturableObject>().SetCaptureGoal(CaptureType.red);
+                GameManager.instance.AddObject(go.GetComponent<CapturableObject>());
+            }
+            else if (objectNumber == 1)
+            {
+                GameObject go = (GameObject)Instantiate(GameObj[objectNumber], new Vector3(x, y, z), Quaternion.identity);
+                go.GetComponent<CapturableObject>().SetCaptureGoal(CaptureType.blue);
+                GameManager.instance.AddObject(go.GetComponent<CapturableObject>());
+            }
+        }
 	}
 }
 
