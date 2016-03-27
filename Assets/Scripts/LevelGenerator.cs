@@ -16,7 +16,10 @@ public class LevelGenerator : MonoBehaviour
 	public float zMin = -10.0f;
 	public float zMax = 10.0f;
 
-	public void GenerateLevel()
+
+    private int roundNumber = 1;
+
+    public void GenerateLevel()
 	{
 		float x, y, z;
 		int Count = Random.Range(CountMin, CountMax);
@@ -41,6 +44,11 @@ public class LevelGenerator : MonoBehaviour
 					return;
 				}
 			}
+
+            if(roundNumber == 1)
+            {
+
+            }
             int objectNumber = Random.Range(0, 100);
             if (objectNumber < 40)
             {
@@ -60,6 +68,8 @@ public class LevelGenerator : MonoBehaviour
                 go.GetComponent<CapturableObject>().SetCaptureGoal(CaptureType.purple);
                 GameManager.instance.AddObject(go.GetComponent<CapturableObject>());
             }
+
+            roundNumber++;
         }
 	}
 }
