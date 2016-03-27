@@ -1299,15 +1299,15 @@ MonoBehaviour:
   - {fileID: 134462, guid: bccbff913a63ffb40bf82bea51a691ef, type: 2}
   - {fileID: 182282, guid: f223b33b1705ee44d983f86626f5d73e, type: 2}
   Timeout: 10000
-  radius: 1.4
-  CountMin: 16
-  CountMax: 18
-  xMin: -4.3
-  xMax: 4.3
+  radius: 0.9
+  CountMin: 18
+  CountMax: 33
+  xMin: -4.5
+  xMax: 4.5
   yMin: 1
   yMax: 1
   zMin: -7.5
-  zMax: 4.7
+  zMax: 5
 --- !u!114 &1813470198
 MonoBehaviour:
   m_ObjectHideFlags: 0
