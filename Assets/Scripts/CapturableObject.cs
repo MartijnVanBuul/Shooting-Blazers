@@ -12,12 +12,15 @@ public class CapturableObject : MonoBehaviour {
     public float neutralScore;
     public float failScore;
 
+    private MeshRenderer meshRenderer;
+    private Color originalColor;
+
 	void Start(){
 		animPlayer = GetComponentInChildren<Animator>();
-	}
 
-        
-    
+        meshRenderer = GetComponentInChildren<MeshRenderer>();
+        originalColor = meshRenderer.material.color;
+	}
 
     /// <summary>
     /// Setting the CaptureType of the object.
@@ -77,19 +80,55 @@ public class CapturableObject : MonoBehaviour {
     {
         GoalCaptureType = type;
 
+        if (meshRenderer == null)
+            meshRenderer = GetComponentInChildren<MeshRenderer>();
+
         if (GoalCaptureType == CaptureType.red)
-            GetComponentInChildren<MeshRenderer>().material.color = Color.red;
+            meshRenderer.material.color = Color.red;
         else if (GoalCaptureType == CaptureType.blue)
-            GetComponentInChildren<MeshRenderer>().material.color = Color.blue;
+            meshRenderer.material.color = Color.blue;
         else if (GoalCaptureType == CaptureType.yellow)
-            GetComponentInChildren<MeshRenderer>().material.color = Color.yellow;
+            meshRenderer.material.color = Color.yellow;
         else if (GoalCaptureType == CaptureType.purple)
-            GetComponentInChildren<MeshRenderer>().material.color = Color.magenta;
+            meshRenderer.material.color = Color.magenta;
         else if (GoalCaptureType == CaptureType.green)
-            GetComponentInChildren<MeshRenderer>().material.color = Color.green;
+            meshRenderer.material.color = Color.green;
         else if (GoalCaptureType == CaptureType.orange)
-            GetComponentInChildren<MeshRenderer>().material.color = new Color(1, 0.5f, 0);
+            meshRenderer.material.color = new Color(1, 0.5f, 0);
         else
-            GetComponentInChildren<MeshRenderer>().material.color = Color.white;
+            meshRenderer.material.color = Color.white;
+
+        originalColor = meshRenderer.material.color;
+    }
+
+    /// <summary>
+    /// Setting or removing the highlight from a tile.
+    /// </summary>
+    /// <param name="highlight">True if it will be highlighted, false if it will be original color.</param>
+    public void SetHighlightColor(bool highlight)
+    {
+            if (highlight)
+                meshRenderer.material.color = ChangeColorBrightness(originalColor, 3f);
+            else
+                meshRenderer.material.color = originalColor;
+    }
+
+    /// <summary>
+    /// Creates color with corrected brightness.
+    /// </summary>
+    /// <param name="color">Color to correct.</param>
+    /// <param name="correctionFactor">The brightness correction factor. This will be a multiplier.
+    /// <returns>Corrected Color.</returns>
+    public static Color ChangeColorBrightness(Color color, float correctionFactor)
+    {
+        float red = color.r;
+        float green = color.g;
+        float blue = color.b;
+
+        red *= correctionFactor;
+        green *= correctionFactor;
+        blue *= correctionFactor;
+
+        return new Color(red, green, blue, color.a);
     }
 }

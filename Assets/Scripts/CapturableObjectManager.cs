@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
@@ -108,13 +109,6 @@ public class CapturableObjectManager : MonoBehaviour
 		return Vector3.zero;
 	}
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-     //Use the same vars you use to draw your Overlap SPhere to draw your Wire Sphere.
-     Gizmos.DrawWireSphere(new Vector3(circlePosition.x, 0, circlePosition.z), circleRadius/2);
-    }
-
     /// <summary>
     /// Method that returns all the objects that are caught in the circle.
     /// </summary>
@@ -147,23 +141,9 @@ public class CapturableObjectManager : MonoBehaviour
 
 		currentCircle.GetComponent<RectTransform>().localScale = new Vector3(circleRadius / 1.4f, circleRadius / 1.4f, 0);
         
-        foreach(Collider collider in Physics.OverlapSphere(new Vector3(circlePosition.x, 0, circlePosition.z), circleRadius / 2))
+        foreach(Collider collider in Physics.OverlapSphere(new Vector3(circlePosition.x, 0, circlePosition.z), circleRadius / 2).Where(c => c.tag == "CaptureObject"))
         {
-            //Do shader stuff.
-            /*if (collider.GetComponent<MeshRenderer>().material == blueReligionNormal)
-                GetComponentInChildren<MeshRenderer>().material = blueReligionOutlined;*/
-            /*else if (GoalCaptureType == CaptureType.blue)
-                GetComponentInChildren<MeshRenderer>().material.color = Color.blue;
-            else if (GoalCaptureType == CaptureType.yellow)
-                GetComponentInChildren<MeshRenderer>().material.color = Color.yellow;
-            else if (GoalCaptureType == CaptureType.purple)
-                GetComponentInChildren<MeshRenderer>().material.color = Color.magenta;
-            else if (GoalCaptureType == CaptureType.green)
-                GetComponentInChildren<MeshRenderer>().material.color = Color.green;
-            else if (GoalCaptureType == CaptureType.orange)
-                GetComponentInChildren<MeshRenderer>().material.color = new Color(1, 0.5f, 0);
-            else
-                GetComponentInChildren<MeshRenderer>().material.color = Color.white;*/
+            collider.GetComponentInChildren<CapturableObject>().SetHighlightColor(true);
         }
 	}
 
