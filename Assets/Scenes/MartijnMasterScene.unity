@@ -1129,15 +1129,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameObj: {fileID: 151072, guid: 80d8110f8615ed74baf69de5d670bc4d, type: 2}
   Timeout: 10000
-  radius: 1
-  CountMin: 8
-  CountMax: 12
-  xMin: -5
-  xMax: 5
+  radius: 1.4
+  CountMin: 14
+  CountMax: 15
+  xMin: -4.3
+  xMax: 4.3
   yMin: 1
   yMax: 1
-  zMin: -10
-  zMax: 5
+  zMin: -7.5
+  zMax: 4.7
 --- !u!114 &1813470198
 MonoBehaviour:
   m_ObjectHideFlags: 0
