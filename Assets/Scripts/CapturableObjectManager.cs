@@ -51,7 +51,7 @@ public class CapturableObjectManager : MonoBehaviour
 
 		if (Input.GetMouseButtonDown(0) && circleCount < circleCaptureTypes.Count)
 		{
-            GetComponentInChildren<ScreenShake>().DoScreenShake(0.1f);
+            GetComponentInChildren<ScreenShake>().DoScreenShake(0.3f);
 			isCircleStarted = true;
 			circlePosition = StartCircle();
 
@@ -103,13 +103,12 @@ public class CapturableObjectManager : MonoBehaviour
 	/// <returns>The start position of the circle.</returns>
 	private Vector3 StartCircle()
 	{
-		circleTimeNow = 0.0f;
+		circleTimeNow = circleTimeDuration * 3.5f / 4.0f;
 
 		ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
 		if (Physics.Raycast(ray, out hit, 100))
 		{
-
 			return hit.point;
 		}
 
