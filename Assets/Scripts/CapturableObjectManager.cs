@@ -46,7 +46,7 @@ public class CapturableObjectManager : MonoBehaviour
 
 		if (Input.GetMouseButtonDown(0) && circleCount < circleCaptureTypes.Count)
 		{
-
+            GetComponentInChildren<ScreenShake>().DoScreenShake(0.1f);
 			isCircleStarted = true;
 			circlePosition = StartCircle();
 
@@ -127,14 +127,19 @@ public class CapturableObjectManager : MonoBehaviour
 			GameManager.instance.NextRound();
 	}
 
-	/// <summary>
-	/// Method for drawing the circle.
-	/// </summary>
-	private void DrawCircle()
+    /// <summary>
+    /// Method for drawing the circle.
+    /// </summary>
+    private void DrawCircle()
 	{
 		circleRadius = circleRadiusMin + (circleRadiusMax - circleRadiusMin) * 0.5f * (1 + Mathf.Sin(2 * Mathf.PI * circleTimeNow / circleTimeDuration));
 
-		currentCircle.GetComponent<RectTransform>().localScale = new Vector3(circleRadius / 2, circleRadius / 2, 0);
+		currentCircle.GetComponent<RectTransform>().localScale = new Vector3(circleRadius / 1.4f, circleRadius / 1.4f, 0);
+        
+        foreach(Collider collider in Physics.OverlapSphere(new Vector3(circlePosition.x, 0, circlePosition.z), circleRadius / 2))
+        {
+            //Do shader stuff.
+        }
 	}
 
 

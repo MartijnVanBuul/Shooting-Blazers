@@ -14,7 +14,6 @@ public class ScreenShake : MonoBehaviour {
 	void Start () 
 	{
 		DoScreenShakeReset(); 
-		DoScreenShake(3.0f);
 	}
 	
 	// Update is called once per frame
